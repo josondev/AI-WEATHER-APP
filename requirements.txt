@@ -1,0 +1,7 @@
+python-dotenv
+langchain-google-genai
+langchain-core
+googletrans==4.0.0-rc1
+gtts
+ipython
+langchain-community
