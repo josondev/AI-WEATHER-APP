@@ -28,7 +28,7 @@
 | Category | Technologies |
 |----------|-------------|
 | **Frontend** | Streamlit, Python |
-| **Weather APIs** | OpenWeatherMap API, Open-Meteo API |
+| **Weather APIs** | OpenWeatherMap API|
 | **Geolocation** | Google Maps Geocoding API |
 | **AI/LLM** | Groq API (Llama-3.3-70b-Versatile) |
 | **Data Processing** | LangChain, Python |
