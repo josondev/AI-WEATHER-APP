@@ -141,11 +141,11 @@ def process_weather_query(location):
     except Exception as e:
         return f"Error processing weather data: {str(e)}"
 
-# Streamlit app
-st.title("Weather + Farmer Helper")
+# Streamlit app with emoji in title
+st.markdown("<h1>🌤️ Weather + Farmer Helper 🌾</h1>", unsafe_allow_html=True)
 
 # User input for location
-location = st.text_input("Enter location:")
+location = st.text_input("📍 Enter location:", placeholder="e.g., New York, London, Tokyo")
 
 def display_analysis(response):
     """Format and display the analysis with proper styling"""
@@ -160,42 +160,45 @@ def display_analysis(response):
         sections = response.split("###")
         
         for section in sections:
-            if section.strip():
-                # Skip Key-Value Summary as it's already displayed
-                if "Key-Value Summary:" not in section:
-                    # Main title
-                    if "Weather Analysis" in section:
-                        st.markdown(f"### {section.splitlines()[0].strip()}")
-                        
-                        # Display subsections
-                        for subsection in section.split("####"):
-                            if subsection.strip():
-                                st.markdown(f"#### {subsection.strip()}")
+            if section.strip() and "Key-Value Summary:" not in section:
+                # Main title - Weather Analysis
+                if "Weather Analysis" in section:
+                    lines = section.strip().splitlines()
+                    st.markdown(f"### {lines[0].strip()}")
                     
-                    # Crop recommendations
-                    elif "Crop Recommendations" in section:
-                        st.markdown(f"### {section.splitlines()[0].strip()}")
-                        remaining_lines = "\n".join(section.splitlines()[1:])
-                        st.markdown(remaining_lines)
+                    # Get remaining content after title
+                    remaining_content = "\n".join(lines[1:])
                     
-                    # Code blocks
-                    elif "```plaintext" in section:
-                        code_blocks = section.split("```plaintext")
-                        for block in code_blocks:
-                            if block.strip():
-                                st.code(block.strip(), language="plaintext")
-                    
-                    else:
-                        st.markdown(section)
+                    # Display subsections
+                    subsections = remaining_content.split("####")
+                    for subsection in subsections:
+                        if subsection.strip():
+                            st.markdown(f"#### {subsection.strip()}")
+                
+                # Crop recommendations
+                elif "Crop Recommendations" in section:
+                    st.markdown(f"### 🌱 {section.splitlines()[0].strip()}")
+                    remaining_lines = "\n".join(section.splitlines()[1:])
+                    st.markdown(remaining_lines)
+                
+                # Code blocks
+                elif "```plaintext" in section:
+                    code_blocks = section.split("```plaintext")
+                    for block in code_blocks:
+                        if block.strip():
+                            st.code(block.strip(), language="plaintext")
+                
+                else:
+                    st.markdown(f"### {section}")
                     
     except Exception as e:
         st.error(f"Error formatting analysis: {str(e)}")
         st.write(response)  # Fallback to raw display
 
 # Update the main app section
-if st.button("Analyze Weather"):
+if st.button("🔍 Analyze Weather"):
     if location:
-        with st.spinner("Analyzing weather data..."):
+        with st.spinner("🌐 Analyzing weather data..."):
             weather_data = process_weather_query(location)
             
             if isinstance(weather_data, dict):
@@ -224,7 +227,7 @@ if st.button("Analyze Weather"):
                     st.download_button(
                         "📥 Download Analysis",
                         response,
-                        file_name=f"weather_analysis_{location}.txt",
+                        file_name=f"weather_analysis_{location.replace(' ', '_')}.txt",
                         mime="text/plain"
                     )
                     
@@ -233,11 +236,11 @@ if st.button("Analyze Weather"):
             else:
                 st.error(weather_data)
     else:
-        st.warning("Please enter a location.")
+        st.warning("⚠️ Please enter a location.")
 
 # Update chat history display
-if st.checkbox("Show Chat History"):
-    st.subheader("💬 Chat History")
+if st.checkbox("💬 Show Chat History"):
+    st.subheader("📜 Chat History")
     for message in st.session_state.chat_history.messages:
         if isinstance(message, HumanMessage):
             st.info(f"👤 User: {message.content}")
