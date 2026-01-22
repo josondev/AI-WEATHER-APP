@@ -66,6 +66,10 @@ GROQ_API_KEY=your_groq_api_key
 
 ### 4. Run the Application
 
+**Full Deployed App :**
+```
+https://ai-weather-app-01.streamlit.app/
+```
 **Streamlit Web App :**
 ```bash
 streamlit run final_app.py
@@ -168,7 +172,7 @@ We welcome contributions to improve this agricultural intelligence system:
 
 - **GitHub Repository**: [josondev/AI-WEATHER-APP](https://github.com/josondev/AI-WEATHER-APP)
 - **Issues**: Report bugs and request features via GitHub Issues
-- **Developer**: [@josondev](https://github.com/josondev)
+- **Developers**: [@josondev](https://github.com/josondev)][@<0xethjayadithya_g7dev/>](https://github.com/jayadithya-g7)]
 
 ## 🙏 Acknowledgments
 
@@ -177,7 +181,3 @@ We welcome contributions to improve this agricultural intelligence system:
 - Groq for advanced AI language model access
 - Open-Meteo for comprehensive soil moisture data
 - Streamlit for rapid web application development
-
-
-
-
