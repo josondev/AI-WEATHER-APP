@@ -72,7 +72,7 @@ https://ai-weather-app-01.streamlit.app/
 ```
 **Streamlit Web App :**
 ```bash
-streamlit run final_app.py
+streamlit run streamlit_app.py
 ```
 
 **Command Line Interface:**
