@@ -172,7 +172,7 @@ We welcome contributions to improve this agricultural intelligence system:
 
 - **GitHub Repository**: [josondev/AI-WEATHER-APP](https://github.com/josondev/AI-WEATHER-APP)
 - **Issues**: Report bugs and request features via GitHub Issues
-- **Developers**: [@josondev](https://github.com/josondev)][@<0xethjayadithya_g7dev/>](https://github.com/jayadithya-g7)]
+- **Developers**: [@josondev](https://github.com/josondev)]
 
 ## 🙏 Acknowledgments
 
